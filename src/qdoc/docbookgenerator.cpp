@@ -1433,6 +1433,7 @@ void DocBookGenerator::generateHeader(const QString &title, const QString &subTi
             else
                 m_writer->writeAttribute(xlinkNamespace, "title", linkPair.second);
             m_writer->writeEndElement(); // extendedlink
+            newLine();
         }
         if (node->links().contains(Node::NextLink)) {
             linkPair = node->links()[Node::NextLink];
@@ -1453,6 +1454,7 @@ void DocBookGenerator::generateHeader(const QString &title, const QString &subTi
             else
                 m_writer->writeAttribute(xlinkNamespace, "title", linkPair.second);
             m_writer->writeEndElement(); // extendedlink
+            newLine();
         }
         if (node->links().contains(Node::StartLink)) {
             linkPair = node->links()[Node::StartLink];
@@ -1473,6 +1475,7 @@ void DocBookGenerator::generateHeader(const QString &title, const QString &subTi
             else
                 m_writer->writeAttribute(xlinkNamespace, "title", linkPair.second);
             m_writer->writeEndElement(); // extendedlink
+            newLine();
         }
     }
 
