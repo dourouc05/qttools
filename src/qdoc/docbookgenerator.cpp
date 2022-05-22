@@ -2366,6 +2366,14 @@ void DocBookGenerator::generateAlsoList(const Node *node)
     supplementAlsoList(node, alsoList);
 
     if (!alsoList.isEmpty()) {
+        m_writer->writeStartElement(dbNamespace, "section"); // section
+        newLine();
+        
+        m_writer->writeStartElement(dbNamespace, "title"); // section
+        m_writer->writeCharacters("See Also");
+        m_writer->writeEndElement(); // section
+        newLine();
+        
         m_writer->writeStartElement(dbNamespace, "para");
         m_writer->writeStartElement(dbNamespace, "emphasis");
         m_writer->writeCharacters("See also ");
@@ -2388,6 +2396,9 @@ void DocBookGenerator::generateAlsoList(const Node *node)
         newLine();
 
         m_writer->writeEndElement(); // para
+        newLine();
+
+        m_writer->writeEndElement(); // section
         newLine();
     }
 }
