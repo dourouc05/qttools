@@ -1423,13 +1423,15 @@ void DocBookGenerator::generateHeader(const QString &title, const QString &subTi
                 anchorPair = anchorForNode(linkNode);
 
             m_writer->writeStartElement(dbNamespace, "extendedlink");
+            m_writer->writeAttribute(xlinkNamespace, "type", "extended");
             m_writer->writeEmptyElement(dbNamespace, "link");
             m_writer->writeAttribute(xlinkNamespace, "to", anchorPair.first);
-            m_writer->writeAttribute(xlinkNamespace, "title", "prev");
+            m_writer->writeAttribute(xlinkNamespace, "type", "arc");
+            m_writer->writeAttribute(xlinkNamespace, "arcrole", "prev");
             if (linkPair.first == linkPair.second && !anchorPair.second.isEmpty())
-                m_writer->writeAttribute(xlinkNamespace, "label", anchorPair.second);
+                m_writer->writeAttribute(xlinkNamespace, "title", anchorPair.second);
             else
-                m_writer->writeAttribute(xlinkNamespace, "label", linkPair.second);
+                m_writer->writeAttribute(xlinkNamespace, "title", linkPair.second);
             m_writer->writeEndElement(); // extendedlink
         }
         if (node->links().contains(Node::NextLink)) {
@@ -1441,13 +1443,15 @@ void DocBookGenerator::generateHeader(const QString &title, const QString &subTi
                 anchorPair = anchorForNode(linkNode);
 
             m_writer->writeStartElement(dbNamespace, "extendedlink");
+            m_writer->writeAttribute(xlinkNamespace, "type", "extended");
             m_writer->writeEmptyElement(dbNamespace, "link");
             m_writer->writeAttribute(xlinkNamespace, "to", anchorPair.first);
-            m_writer->writeAttribute(xlinkNamespace, "title", "prev");
+            m_writer->writeAttribute(xlinkNamespace, "type", "arc");
+            m_writer->writeAttribute(xlinkNamespace, "arcrole", "prev");
             if (linkPair.first == linkPair.second && !anchorPair.second.isEmpty())
-                m_writer->writeAttribute(xlinkNamespace, "label", anchorPair.second);
+                m_writer->writeAttribute(xlinkNamespace, "title", anchorPair.second);
             else
-                m_writer->writeAttribute(xlinkNamespace, "label", linkPair.second);
+                m_writer->writeAttribute(xlinkNamespace, "title", linkPair.second);
             m_writer->writeEndElement(); // extendedlink
         }
         if (node->links().contains(Node::StartLink)) {
@@ -1459,13 +1463,15 @@ void DocBookGenerator::generateHeader(const QString &title, const QString &subTi
                 anchorPair = anchorForNode(linkNode);
 
             m_writer->writeStartElement(dbNamespace, "extendedlink");
+            m_writer->writeAttribute(xlinkNamespace, "type", "extended");
             m_writer->writeEmptyElement(dbNamespace, "link");
             m_writer->writeAttribute(xlinkNamespace, "to", anchorPair.first);
-            m_writer->writeAttribute(xlinkNamespace, "title", "start");
+            m_writer->writeAttribute(xlinkNamespace, "type", "arc");
+            m_writer->writeAttribute(xlinkNamespace, "arcrole", "start");
             if (linkPair.first == linkPair.second && !anchorPair.second.isEmpty())
-                m_writer->writeAttribute(xlinkNamespace, "label", anchorPair.second);
+                m_writer->writeAttribute(xlinkNamespace, "title", anchorPair.second);
             else
-                m_writer->writeAttribute(xlinkNamespace, "label", linkPair.second);
+                m_writer->writeAttribute(xlinkNamespace, "title", linkPair.second);
             m_writer->writeEndElement(); // extendedlink
         }
     }
