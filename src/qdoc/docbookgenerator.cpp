@@ -2375,12 +2375,15 @@ void DocBookGenerator::generateAlsoList(const Node *node)
         m_writer->writeStartElement(dbNamespace, "simplelist");
         m_writer->writeAttribute("type", "vert");
         m_writer->writeAttribute("role", "see-also");
+        newLine();
+        
         for (const Text &text : alsoList) {
             m_writer->writeStartElement(dbNamespace, "member");
             generateText(text, node);
             m_writer->writeEndElement(); // member
             newLine();
         }
+        
         m_writer->writeEndElement(); // simplelist
         newLine();
 
