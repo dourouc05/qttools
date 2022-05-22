@@ -2385,6 +2385,7 @@ void DocBookGenerator::generateAlsoList(const Node *node)
         newLine();
 
         m_writer->writeEndElement(); // para
+        newLine();
     }
 }
 
